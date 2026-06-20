@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAUTI Care Bundle Checklist - พุนพิน</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Sarabun', sans-serif; background: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 100%); }
+    .card-gradient { background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); }
+  </style>
+</head>
+<body class="min-h-screen p-4 md:p-8 text-slate-800">
+
+  <div class="max-w-6xl mx-auto">
+    <header class="text-center mb-8 bg-gradient-to-r from-teal-500 via-emerald-500 to-cyan-500 p-6 rounded-3xl shadow-xl text-white transform hover:scale-[1.01] transition-all">
+      <h1 class="text-2xl md:text-4xl font-bold mb-2"><i class="fa-solid fa-kit-medical mr-2"></i>CAUTI Care Bundle Checklist</h1>
+      <p class="text-sm md:text-lg opacity-90 font-light">ระบบบันทึกและติดตามการปฏิบัติการดูแลผู้ป่วยใส่คาสายสวนปัสสาวะ • รพ.พุนพิน [cite: 1]</p>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <section class="lg:col-span-7 card-gradient p-6 rounded-3xl shadow-lg border border-teal-100">
+        <h2 class="text-xl font-bold text-teal-700 mb-4 border-b pb-2 border-teal-200">
+          <i class="fa-solid fa-clipboard-check mr-2"></i>แบบประเมินการปฏิบัติ
+        </h2>
+        
+        <form id="cautiForm" onsubmit="handleSubmit(event)" class="space-y-5">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-2"><i class="fa-regular fa-calendar-days mr-2 text-teal-600"></i>วันที่ประเมิน [cite: 2]</label>
+            <input type="date" id="evalDate" required class="w-full md:w-1/2 p-3 border-2 border-teal-200 rounded-xl focus:outline-none focus:border-teal-500 bg-white shadow-sm transition-all">
+          </div>
+
+          <div class="space-y-4">
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 hover:border-teal-300 transition-all">
+              <p class="font-semibold text-slate-800 mb-2">1. ประเมินความจำเป็นในการใส่สายสวนปัสสาวะ (เวรเช้าทำ) [cite: 3]</p>
+              <div class="flex gap-4">
+                <label class="flex items-center gap-2 cursor-pointer bg-emerald-50 px-4 py-2 rounded-xl text-emerald-700 font-medium hover:bg-emerald-100 transition-all"><input type="radio" name="q1" value="ปฏิบัติ" required class="accent-emerald-600"> ปฏิบัติ [cite: 3]</label>
+                <label class="flex items-center gap-2 cursor-pointer bg-rose-50 px-4 py-2 rounded-xl text-rose-700 font-medium hover:bg-rose-100 transition-all"><input type="radio" name="q1" value="ไม่ปฏิบัติ" class="accent-rose-600"> ไม่ปฏิบัติ [cite: 3]</label>
+              </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 hover:border-teal-300 transition-all">
+              <p class="font-semibold text-slate-800 mb-2">2. ใช้ hand hygiene เมื่อสัมผัสสายสวนปัสสาวะ [cite: 3]</p>
+              <div class="flex gap-4">
+                <label class="flex items-center gap-2 cursor-pointer bg-emerald-50 px-4 py-2 rounded-xl text-emerald-700 font-medium hover:bg-emerald-100 transition-all"><input type="radio" name="q2" value="ปฏิบัติ" required class="accent-emerald-600"> ปฏิบัติ [cite: 3]</label>
+                <label class="flex items-center gap-2 cursor-pointer bg-rose-50 px-4 py-2 rounded-xl text-rose-700 font-medium hover:bg-rose-100 transition-all"><input type="radio" name="q2" value="ไม่ปฏิบัติ" class="accent-rose-600"> ไม่ปฏิบัติ [cite: 3]</label>
+              </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 hover:border-teal-300 transition-all">
+              <p class="font-semibold text-slate-800 mb-1">3. ให้ระบบปัสสาวะเป็น close system ตลอดเวลา [cite: 3]</p>
+              <div class="flex gap-4">
+                <label class="flex items-center gap-2 cursor-pointer bg-emerald-50 px-4 py-2 rounded-xl text-emerald-700 font-medium hover:bg-emerald-100 transition-all"><input type="radio" name="q3" value="ปฏิบัติ" required class="accent-emerald-600"> ปฏิบัติ [cite: 3]</label>
+                <label class="flex items-center gap-2 cursor-pointer bg-rose-50 px-4 py-2 rounded-xl text-rose-700 font-medium hover:bg-rose-100 transition-all"><input type="radio" name="q3" value="ไม่ปฏิบัติ" class="accent-rose-600"> ไม่ปฏิบัติ [cite: 3]</label>
+              </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 hover:border-teal-300 transition-all">
+              <p class="font-semibold text-slate-800 mb-1">4. สายสวนปัสสาวะอยู่ในตำแหน่งที่เหมาะสม (ไหลสะดวก ไม่งอพับ ไม่มีการอุดตัน) [cite: 3]</p>
+              <div class="flex gap-4">
+                <label class="flex items-center gap-2 cursor-pointer bg-emerald-50 px-4 py-2 rounded-xl text-emerald-700 font-medium hover:bg-emerald-100 transition-all"><input type="radio" name="q4" value="ปฏิบัติ" required class="accent-emerald-600"> ปฏิบัติ [cite: 3]</label>
+                <label class="flex items-center gap-2 cursor-pointer bg-rose-50 px-4 py-2 rounded-xl text-rose-700 font-medium hover:bg-rose-100 transition-all"><input type="radio" name="q4" value="ไม่ปฏิบัติ" class="accent-rose-600"> ไม่ปฏิบัติ [cite: 3]</label>
+              </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 hover:border-teal-300 transition-all">
+              <p class="font-semibold text-slate-800 mb-1">5. จัดวางถุงเก็บปัสสาวะแขวนไว้ต่ำกว่าระดับกระเพาะปัสสาวะ โดยไม่สัมผัสพื้น [cite: 3]</p>
+              <div class="flex gap-4">
+                <label class="flex items-center gap-2 cursor-pointer bg-emerald-50 px-4 py-2 rounded-xl text-emerald-700 font-medium hover:bg-emerald-100 transition-all"><input type="radio" name="q5" value="ปฏิบัติ" required class="accent-emerald-600"> ปฏิบัติ [cite: 3]</label>
+                <label class="flex items-center gap-2 cursor-pointer bg-rose-50 px-4 py-2 rounded-xl text-rose-700 font-medium hover:bg-rose-100 transition-all"><input type="radio" name="q5" value="ไม่ปฏิบัติ" class="accent-rose-600"> ไม่ปฏิบัติ [cite: 3]</label>
+              </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 hover:border-teal-300 transition-all">
+              <p class="font-semibold text-slate-800 mb-1">6. ไม่เปลี่ยนสายสวนปัสสาวะเป็น Routine (เปลี่ยนเมื่อรั่วซึม/อุดตัน และเปลี่ยนทั้งชุด) [cite: 3]</p>
+              <div class="flex gap-4">
+                <label class="flex items-center gap-2 cursor-pointer bg-emerald-50 px-4 py-2 rounded-xl text-emerald-700 font-medium hover:bg-emerald-100 transition-all"><input type="radio" name="q6" value="ปฏิบัติ" required class="accent-emerald-600"> ปฏิบัติ [cite: 3]</label>
+                <label class="flex items-center gap-2 cursor-pointer bg-rose-50 px-4 py-2 rounded-xl text-rose-700 font-medium hover:bg-rose-100 transition-all"><input type="radio" name="q6" value="ไม่ปฏิบัติ" class="accent-rose-600"> ไม่ปฏิบัติ [cite: 3]</label>
+              </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 hover:border-teal-300 transition-all">
+              <p class="font-semibold text-slate-800 mb-1">7. ทำความสะอาดบริเวณ urethral meatus เช้า-เย็น และหลังขับถ่ายด้วย NSS [cite: 3]</p>
+              <div class="flex gap-4">
+                <label class="flex items-center gap-2 cursor-pointer bg-emerald-50 px-4 py-2 rounded-xl text-emerald-700 font-medium hover:bg-emerald-100 transition-all"><input type="radio" name="q7" value="ปฏิบัติ" required class="accent-emerald-600"> ปฏิบัติ [cite: 3]</label>
+                <label class="flex items-center gap-2 cursor-pointer bg-rose-50 px-4 py-2 rounded-xl text-rose-700 font-medium hover:bg-rose-100 transition-all"><input type="radio" name="q7" value="ไม่ปฏิบัติ" class="accent-rose-600"> ไม่ปฏิบัติ [cite: 3]</label>
+              </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 hover:border-teal-300 transition-all">
+              <p class="font-semibold text-slate-800 mb-1">8. เทปัสสาวะโดยเช็ด Urinary drainage tap ด้วย 70% alcohol และใช้ภาชนะสะอาดไม่สัมผัสข้อต่อ [cite: 3]</p>
+              <div class="flex gap-4">
+                <label class="flex items-center gap-2 cursor-pointer bg-emerald-50 px-4 py-2 rounded-xl text-emerald-700 font-medium hover:bg-emerald-100 transition-all"><input type="radio" name="q8" value="ปฏิบัติ" required class="accent-emerald-600"> ปฏิบัติ [cite: 3]</label>
+                <label class="flex items-center gap-2 cursor-pointer bg-rose-50 px-4 py-2 rounded-xl text-rose-700 font-medium hover:bg-rose-100 transition-all"><input type="radio" name="q8" value="ไม่ปฏิบัติ" class="accent-rose-600"> ไม่ปฏิบัติ [cite: 3]</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-4 pt-4">
+            <button type="submit" class="flex-1 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold py-3.5 px-6 rounded-2xl shadow-lg transform active:scale-95 transition-all text-center cursor-pointer">
+              <i class="fa-solid fa-cloud-arrow-up mr-2"></i>บันทึกข้อมูล
+            </button>
+            <button type="button" onclick="clearForm()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-3.5 px-6 rounded-2xl shadow shadow-inner transition-all cursor-pointer">
+              <i class="fa-solid fa-trash-can mr-2"></i>Clear
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="lg:col-span-5 flex flex-col gap-6">
+        
+        <div class="card-gradient p-6 rounded-3xl shadow-lg border border-cyan-100">
+          <h2 class="text-xl font-bold text-cyan-700 mb-4 border-b pb-2 border-cyan-200">
+            <i class="fa-solid fa-chart-pie mr-2"></i>ภาพรวมอัตราการปฏิบัติ (%)
+          </h2>
+          <div class="grid grid-cols-2 gap-4 text-center">
+            <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-100">
+              <p class="text-xs text-emerald-600 font-bold uppercase">ปฏิบัติเฉลี่ย</p>
+              <p id="avgDone" class="text-3xl font-bold text-emerald-700 mt-1">0%</p>
+            </div>
+            <div class="bg-rose-50 p-4 rounded-2xl border border-rose-100">
+              <p class="text-xs text-rose-600 font-bold uppercase">ไม่ปฏิบัติเฉลี่ย</p>
+              <p id="avgNotDone" class="text-3xl font-bold text-rose-700 mt-1">0%</p>
+            </div>
+          </div>
+          <p class="text-xs text-slate-400 mt-3 text-right" id="totalRecords">จำนวนข้อมูลทั้งหมด: 0 เคส</p>
+        </div>
+
+        <div class="card-gradient p-6 rounded-3xl shadow-lg border border-cyan-100 flex-1 flex flex-col">
+          <h2 class="text-xl font-bold text-cyan-700 mb-4 border-b pb-2 border-cyan-200">
+            <i class="fa-solid fa-chart-bar mr-2"></i>เปรียบเทียบรายข้อ
+          </h2>
+          <div class="relative w-full flex-1 min-h-[300px]">
+            <canvas id="cautiChart"></canvas>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </div>
+
+  <script>
+    let cautiChart = null;
+
+    // รันเมื่อเปิดหน้าเว็บครั้งแรกเพื่อโหลดข้อมูล Dashboard
+    window.addEventListener('load', () => {
+      // ตั้งค่าให้ช่องวันที่เป็นวันปัจจุบันอัตโนมัติ
+      document.getElementById('evalDate').value = new Date().toISOString().split('T')[0];
+      loadDashboardData();
+    });
+
+    // ฟังก์ชันล้างฟอร์ม
+    function clearForm() {
+      document.getElementById('cautiForm').reset();
+      document.getElementById('evalDate').value = new Date().toISOString().split('T')[0];
+    }
+
+    // ฟังก์ชันเมื่อกดส่งฟอร์ม
+    function handleSubmit(e) {
+      e.preventDefault();
+      
+      const formData = {
+        evalDate: document.getElementById('evalDate').value,
+        q1: document.querySelector('input[name="q1"]:checked').value,
+        q2: document.querySelector('input[name="q2"]:checked').value,
+        q3: document.querySelector('input[name="q3"]:checked').value,
+        q4: document.querySelector('input[name="q4"]:checked').value,
+        q5: document.querySelector('input[name="q5"]:checked').value,
+        q6: document.querySelector('input[name="q6"]:checked').value,
+        q7: document.querySelector('input[name="q7"]:checked').value,
+        q8: document.querySelector('input[name="q8"]:checked').value
+      };
+
+      // ส่งข้อมูลไปยัง Google Apps Script (Backend)
+      google.script.run
+        .withSuccessHandler(function(response) {
+          alert(response);
+          clearForm();
+          loadDashboardData(); // อัปเดตกราฟแบบ Real-time หลังจากบันทึกเสร็จ
+        })
+        .withFailureHandler(function(err) {
+          alert("เกิดข้อผิดพลาดในการบันทึก: " + err.message);
+        })
+        .saveData(formData);
+    }
+
+    // ฟังก์ชันดึงข้อมูลจาก Google Sheet มาวาดกราฟและสรุปผล
+    function loadDashboardData() {
+      google.script.run
+        .withSuccessHandler(function(data) {
+          if (!data || !data.rows || data.rows.length === 0) {
+            initChart([0,0,0,0,0,0,0,0], [0,0,0,0,0,0,0,0]);
+            return;
+          }
+
+          const totalRows = data.rows.length;
+          document.getElementById('totalRecords').innerText = `จำนวนข้อมูลทั้งหมด: ${totalRows} เคส`;
+
+          // อาร์เรย์เก็บจำนวน "ปฏิบัติ" ของทั้ง 8 ข้อ (ดัชนีคอลัมน์ใน Sheet เริ่มที่ 2 ถึง 9)
+          let doneCounts = Array(8).fill(0);
+
+          data.rows.forEach(row => {
+            for(let i = 0; i < 8; i++) {
+              if(row[i + 2] === "ปฏิบัติ") {
+                doneCounts[i]++;
+              }
+            }
+          });
+
+          // คำนวณเป็นเปอร์เซ็นต์
+          let donePercentages = doneCounts.map(count => Math.round((count / totalRows) * 100));
+          let notDonePercentages = donePercentages.map(pct => 100 - pct);
+
+          // คำนวณค่าเฉลี่ยรวมทุกข้อ
+          let avgDone = Math.round(donePercentages.reduce((a, b) => a + b, 0) / 8);
+          let avgNotDone = 100 - avgDone;
+
+          document.getElementById('avgDone').innerText = `${avgDone}%`;
+          document.getElementById('avgNotDone').innerText = `${avgNotDone}%`;
+
+          // อัปเดตหรือสร้างกราฟใหม่
+          initChart(donePercentages, notDonePercentages);
+        })
+        .getData();
+    }
+
+    // ฟังก์ชันสร้าง/อัปเดตแผนภูมิแท่งเปรียบเทียบ
+    function initChart(doneData, notDoneData) {
+      const ctx = document.getElementById('cautiChart').getContext('2d');
+      
+      if (cautiChart) {
+        cautiChart.destroy(); // ลบกราฟเก่าออกก่อนอัปเดตใหม่
+      }
+
+      cautiChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['ข้อ 1', 'ข้อ 2', 'ข้อ 3', 'ข้อ 4', 'ข้อ 5', 'ข้อ 6', 'ข้อ 7', 'ข้อ 8'],
+          datasets: [
+            {
+              label: 'ปฏิบัติ (%)',
+              data: doneData,
+              backgroundColor: '#10b981', // Emerald 500
+              borderRadius: 8
+            },
+            {
+              label: 'ไม่ปฏิบัติ (%)',
+              data: notDoneData,
+              backgroundColor: '#f43f5e', // Rose 500
+              borderRadius: 8
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100,
+              ticks: { callback: value => value + '%' }
+            }
+          },
+          plugins: {
+            legend: { position: 'bottom' }
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
