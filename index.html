@@ -490,7 +490,7 @@
               <span class="w-2.5 h-2.5 rounded-full bg-purple-500 animate-pulse"></span>
               <span>เปรียบเทียบ ปฏิบัติ/ไม่ปฏิบัติ รายข้อ (%)</span>
             </h3>
-            <span class="text-[10px] bg-slate-100 px-2.5 py-1 rounded-full font-bold text-slate-500">เกณฑ์ 16 ข้อ</span>
+            <span class="text-[10px] bg-slate-100 px-2.5 py-1 rounded-full font-bold text-slate-500">เกณฑ์ 8 ข้อ</span>
           </div>
           <div class="relative min-h-[450px] w-full flex items-center justify-center">
             <canvas id="comparisonChartCanvas"></canvas>
@@ -1279,19 +1279,23 @@
           });
         }
 
+        let yesText = rate > 0 ? `ปฏิบัติ ${rate}% (${yesCount}/${evaluatedTotal})` : '';
+        let noText = noRate > 0 ? `ไม่ปฏิบัติ ${noRate}% (${noCount}/${evaluatedTotal})` : '';
+
         breakdownHtml += `
           <div class="space-y-1.5 bg-slate-50 p-3 rounded-xl border border-slate-100 hover:border-pink-200 transition-all">
             <div class="flex justify-between items-start text-xs mb-2 gap-3">
               <div class="font-semibold text-slate-800 leading-relaxed flex-1">
                 <span class="text-pink-600 font-bold mr-1">ข้อ ${i}.</span>${itemStats[i].text}
               </div>
-              <div class="font-bold text-pink-700 whitespace-nowrap pt-0.5">
-                ${rate}% (${yesCount}/${evaluatedTotal})
-              </div>
             </div>
-            <div class="w-full bg-slate-200 rounded-full h-1.5 flex overflow-hidden">
-              <div class="bg-pink-500 h-full" style="width: ${rate}%"></div>
-              <div class="bg-slate-300 h-full" style="width: ${noRate}%"></div>
+            <div class="w-full bg-slate-200 rounded-full h-5 flex overflow-hidden text-[10px] font-bold text-white shadow-inner">
+              <div class="bg-pink-500 h-full flex items-center justify-center overflow-hidden whitespace-nowrap px-1 transition-all" style="width: ${rate}%">
+                ${yesText}
+              </div>
+              <div class="bg-slate-400 h-full flex items-center justify-center overflow-hidden whitespace-nowrap px-1 transition-all" style="width: ${noRate}%">
+                ${noText}
+              </div>
             </div>
           </div>
         `;
@@ -1344,22 +1348,49 @@
             let listHtml = '';
             ncDataArr.forEach((d, index) => {
                 const rank = index + 1;
+                
+                let rankColorClass = "bg-slate-100 text-slate-600 border-slate-200";
+                let accentColor = "text-slate-600";
+                let barColor = "bg-slate-400";
+                let countLabelColor = "text-slate-400";
+                let highlightBorder = "border-slate-100";
+
+                if (rank === 1) {
+                    rankColorClass = "bg-rose-100 text-rose-700 border-rose-300";
+                    accentColor = "text-rose-600";
+                    barColor = "bg-rose-500";
+                    countLabelColor = "text-rose-400";
+                    highlightBorder = "border-rose-100";
+                } else if (rank === 2) {
+                    rankColorClass = "bg-orange-100 text-orange-700 border-orange-300";
+                    accentColor = "text-orange-600";
+                    barColor = "bg-orange-500";
+                    countLabelColor = "text-orange-400";
+                    highlightBorder = "border-orange-100";
+                } else if (rank === 3) {
+                    rankColorClass = "bg-amber-100 text-amber-700 border-amber-300";
+                    accentColor = "text-amber-600";
+                    barColor = "bg-amber-500";
+                    countLabelColor = "text-amber-400";
+                    highlightBorder = "border-amber-100";
+                }
+
                 listHtml += `
-                  <div class="bg-white p-3 rounded-xl border border-blue-100 shadow-sm hover:shadow-md transition-all">
+                  <div class="bg-white p-3 rounded-xl border ${highlightBorder} shadow-sm hover:shadow-md transition-all">
                     <div class="flex justify-between items-start gap-3">
                       <div class="flex items-start gap-2.5 w-full">
-                         <div class="w-6 h-6 rounded-full bg-blue-50 text-blue-600 border border-blue-200 flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">${rank}</div>
+                         <div class="w-6 h-6 rounded-full ${rankColorClass} flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">${rank}</div>
                          <div class="text-xs font-medium text-slate-700 leading-relaxed">
-                           <span class="font-bold text-blue-600">ข้อ ${d.item}.</span> ${d.fullText}
+                           <span class="font-bold ${accentColor}">ข้อ ${d.item}.</span> ${d.fullText}
                          </div>
                       </div>
                       <div class="shrink-0 text-right flex flex-col items-end">
-                         <div class="text-blue-600 font-bold text-[13px] leading-none mb-1">${d.noCount} <span class="text-[9px] font-medium text-blue-400">ครั้ง</span></div>
+                         <div class="${accentColor} font-bold text-[13px] leading-none mb-1">${d.noCount} <span class="text-[9px] font-medium ${countLabelColor}">ครั้ง</span></div>
                          <div class="text-[10px] font-semibold text-slate-500 bg-slate-50 px-1.5 py-0.5 rounded leading-none">${d.pct}% <span class="font-normal">(${d.noCount}/${d.totalEval})</span></div>
                       </div>
                     </div>
                     <div class="w-full bg-slate-100 rounded-full h-1.5 mt-2.5 ml-[34px]" style="width: calc(100% - 34px);">
-                       <div class="bg-blue-500 h-full rounded-full transition-all duration-1000" style="width: ${d.pct}%"></div>
+                       <div class="${barColor} h-full rounded-full transition-all duration-1000" style="width: ${d.pct}%"></div>
                     </div>
                   </div>
                 `;
