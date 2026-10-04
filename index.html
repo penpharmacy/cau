@@ -702,7 +702,7 @@
     async function fetchDataFromSheet() {
       try {
         const url = db.apiUrl + '?action=fetch';
-        const response = await fetch(url, { method: 'GET' });
+       const response = await fetch(url, { method: 'GET', redirect: 'follow' });
         const raw = await response.json();
 
         // [แก้ไขจุดที่ 1] ป้องกันกรณีข้อมูลไม่ได้ส่งกลับมาเป็น Array
