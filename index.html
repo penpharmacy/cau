@@ -86,13 +86,13 @@
         </form>
       </div>
 
-      <!-- Checklist Section Header (Pink Soft Accent) -->
+      <!-- Checklist Section Header -->
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-pink-50 border border-pink-100 p-4 rounded-xl">
         <div>
           <h2 class="font-bold text-pink-900 text-lg">เกณฑ์การประเมิน CAUTI Care Bundle</h2>
           <p class="text-xs text-pink-700 font-light">กรุณาประเมินการปฏิบัติงานจริงในหอผู้ป่วยตามข้อกำหนดทั้ง 8 ข้อ</p>
         </div>
-        <!-- Live Score Widget (Pink Style) -->
+        <!-- Live Score Widget -->
         <div class="bg-pink-600 text-white rounded-2xl px-5 py-3 shadow-md flex items-center space-x-3 w-full md:w-auto justify-center">
           <div class="text-right">
             <span class="text-[10px] block text-pink-100 uppercase font-bold tracking-wider">Bundle Compliance</span>
@@ -308,7 +308,7 @@
     <!-- TAB 2: HISTORY VIEW -->
     <div id="tab-history-content" class="tab-content hidden space-y-6">
       
-      <!-- Statistics Widget inside History (Pink Accents) -->
+      <!-- Statistics Widget inside History -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center space-x-4">
           <div class="p-3 bg-amber-50 text-amber-600 rounded-xl">
@@ -341,7 +341,6 @@
         <div class="flex justify-between items-center pb-4 mb-4 border-b border-slate-100">
           <h2 class="font-bold text-slate-800 text-lg flex items-center space-x-2">
             <span>รายการประเมิน</span>
-            <span class="text-xs font-normal text-slate-400"></span>
           </h2>
           <button onclick="confirmClearHistory()" class="text-xs text-rose-600 hover:text-rose-800 font-semibold flex items-center space-x-1">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
@@ -400,14 +399,13 @@
         </div>
       </div>
 
-      <!-- TIME-PERIOD FILTER PANEL (New Dynamic Filter Component) -->
+      <!-- TIME-PERIOD FILTER PANEL -->
       <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-4">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <span class="text-sm font-bold text-slate-700 flex items-center space-x-1.5">
             <span class="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span>
             <span>เลือกช่วงเวลาเพื่อกรองการแสดงผลสถิติ:</span>
           </span>
-          <!-- Tabbed Segment Buttons for Filters -->
           <div class="flex flex-wrap gap-1 bg-slate-100 p-1 rounded-xl">
             <button onclick="setFilterType('all')" id="filter-btn-all" class="filter-tab-btn px-4 py-2 rounded-lg text-xs font-bold transition-all bg-pink-600 text-white shadow-sm">ทั้งหมด</button>
             <button onclick="setFilterType('month')" id="filter-btn-month" class="filter-tab-btn px-4 py-2 rounded-lg text-xs font-semibold transition-all text-slate-600 hover:text-slate-800">รายเดือน</button>
@@ -419,21 +417,17 @@
         <!-- Interactive Inputs Display Container -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-3 border-t border-slate-100 hidden" id="filterInputsContainer">
           
-          <!-- Month Input -->
           <div id="filter-input-month" class="filter-input-sub hidden">
             <label class="block text-xs font-semibold text-slate-500 mb-1">กรุณาเลือกเดือนที่ต้องการประเมิน</label>
             <input type="month" id="filterMonthVal" onchange="renderReports()" class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none text-sm text-slate-700">
           </div>
           
-          <!-- Year Dropdown -->
           <div id="filter-input-year" class="filter-input-sub hidden">
             <label class="block text-xs font-semibold text-slate-500 mb-1">กรุณาเลือกปีงบประมาณ</label>
             <select id="filterYearVal" onchange="renderReports()" class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none text-sm text-slate-700">
-              <!-- Options populated dynamically -->
             </select>
           </div>
           
-          <!-- Custom Date Range -->
           <div id="filter-input-range" class="filter-input-sub hidden md:col-span-2 flex items-center space-x-2">
             <div class="flex-1">
               <label class="block text-xs font-semibold text-slate-500 mb-1">เริ่มประเมินตั้งแต่วันที่</label>
@@ -445,11 +439,10 @@
               <input type="date" id="filterEndVal" onchange="renderReports()" class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none text-sm text-slate-700">
             </div>
           </div>
-
         </div>
       </div>
 
-      <!-- Key Stats Overview Card (Adjusted to 3 columns layout) -->
+      <!-- Key Stats Overview Card -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <span class="text-xs text-slate-400 block font-semibold uppercase tracking-wider">ประเมินสะสมในช่วงนี้</span>
@@ -477,7 +470,6 @@
       <!-- MAIN CHARTS ROW -->
       <div class="grid grid-cols-1 gap-6">
         
-        <!-- Chart 1: Comparison Bar Chart -->
         <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
           <div class="pb-3 mb-4 border-b border-slate-100 flex justify-between items-center">
             <h3 class="font-bold text-slate-800 text-sm md:text-base flex items-center space-x-2">
@@ -495,7 +487,6 @@
           </div>
         </div>
 
-        <!-- Chart 2: Top Non-Compliance (HTML List format) -->
         <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
           <div class="pb-3 mb-4 border-b border-slate-100 flex justify-between items-center">
             <h3 class="font-bold text-slate-800 text-sm md:text-base flex items-center space-x-2">
@@ -504,7 +495,6 @@
             </h3>
           </div>
           <div id="nonComplianceListContainer" class="space-y-2.5 w-full">
-            <!-- Dynamic list goes here -->
           </div>
           <div id="chart2EmptyState" class="bg-emerald-50/50 rounded-xl p-8 flex flex-col items-center justify-center text-emerald-600 space-y-2 hidden border border-emerald-100 mt-2">
             <svg class="w-12 h-12 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -514,14 +504,12 @@
 
       </div>
 
-      <!-- Compliance by Item Detailed Breakdown -->
       <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
         <h2 class="font-bold text-slate-800 text-lg mb-4 flex items-center space-x-2">
           <span>ตารางรายละเอียดอัตราการปฏิบัติตามมาตรฐาน</span>
         </h2>
         
         <div class="space-y-3" id="itemBreakdownContainer">
-          <!-- Dynamically populated breakdown elements -->
         </div>
       </div>
 
@@ -530,7 +518,6 @@
     <!-- TAB 4: SETTINGS VIEW -->
     <div id="tab-settings-content" class="tab-content hidden space-y-6">
       
-      <!-- API Setting Card -->
      <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
   <div class="flex items-center space-x-2 pb-4 mb-4 border-b border-slate-100">
     <h2 class="font-semibold text-slate-800 text-lg">ตั้งค่าการซิงค์ข้อมูล Google Sheets</h2>
@@ -576,12 +563,10 @@
   </div>
 </div>
 
-    <!-- Instructions Card (ซ่อนไว้ด้วยคลาส hidden) -->
 <div class="hidden bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
   <h2 class="font-semibold text-slate-800 text-lg pb-4 mb-4 border-b border-slate-100">
     <span>วิธีการเริ่มใช้งานร่วมกับ Google Sheets (ภายใน 3 นาที)</span>
   </h2>
-
         <div class="space-y-4 text-sm text-slate-600">
           <ol class="list-decimal pl-5 space-y-3">
             <li>เปิดลิงก์ Google Sheet ที่กำหนด: <a href="https://docs.google.com/spreadsheets/d/1yOPzmyd7ExMELRpwltyPu7onH5dCwpjZUPs5IP2JqQ4/edit?gid=0#gid=0" target="_blank" class="text-pink-600 hover:underline font-medium">cauti - Google ชีต</a></li>
@@ -614,28 +599,23 @@
     </div>
   </footer>
 
-  <!-- MODERN NOTIFICATION MODAL (NO ALERT) -->
+  <!-- MODERN NOTIFICATION MODAL -->
   <div id="customModal" class="fixed inset-0 bg-slate-900/60 flex items-center justify-center p-4 z-50 hidden transition-all duration-300">
     <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="modalCard">
       <div class="flex flex-col items-center text-center space-y-4">
-        <!-- Success Icon Area -->
         <div id="modalIconSuccess" class="hidden p-3 bg-emerald-100 text-emerald-600 rounded-full">
           <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
         </div>
-        <!-- Error Icon Area -->
         <div id="modalIconError" class="hidden p-3 bg-rose-100 text-rose-600 rounded-full">
           <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
         </div>
-        <!-- Info Icon Area -->
         <div id="modalIconInfo" class="hidden p-3 bg-pink-100 text-pink-600 rounded-full">
           <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
         </div>
-
         <div class="space-y-1">
           <h3 class="text-lg font-bold text-slate-800" id="modalTitle">หัวข้อการทำงาน</h3>
           <p class="text-sm text-slate-500" id="modalMessage">คำอธิบายรายละเอียดการทำงาน...</p>
         </div>
-
         <button onclick="closeModal()" class="w-full py-2.5 bg-slate-800 hover:bg-slate-900 text-white font-semibold rounded-xl text-sm transition-all focus:outline-none">
           ตกลง
         </button>
@@ -643,19 +623,17 @@
     </div>
   </div>
 
-  <!-- MODERN CONFIRMATION MODAL (NO CONFIRM) -->
+  <!-- MODERN CONFIRMATION MODAL -->
   <div id="customConfirmModal" class="fixed inset-0 bg-slate-900/60 flex items-center justify-center p-4 z-50 hidden transition-all duration-300">
     <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="confirmModalCard">
       <div class="flex flex-col items-center text-center space-y-4">
         <div class="p-3 bg-amber-100 text-amber-600 rounded-full">
           <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
         </div>
-
         <div class="space-y-1">
           <h3 class="text-lg font-bold text-slate-800" id="confirmModalTitle">ต้องการยืนยันหรือไม่?</h3>
           <p class="text-sm text-slate-500" id="confirmModalMessage">คำเตือนเกี่ยวกับสิ่งที่จะทำ...</p>
         </div>
-
         <div class="grid grid-cols-2 gap-3 w-full">
           <button id="confirmCancelBtn" onclick="closeConfirmModal()" class="py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl text-sm transition-all">
             ยกเลิก
@@ -670,9 +648,6 @@
 
   <!-- JAVASCRIPT LOGIC -->
   <script>
-    // ==========================================
-    // ⚙️ ตัวตั้งค่าส่วนกลาง
-    // ==========================================
     const GLOBAL_DEFAULT_API_URL = "https://script.google.com/macros/s/AKfycbxDqV0qwWR7Ca10SwL1gDOG2vxLqspYq8anyuamhhlo3ph5IhkuyxRyxIPeZ3KMEMI/exec";
 
     let db = {
@@ -687,7 +662,7 @@
     let activeConfirmCallback = null;
 
     // ==========================================
-    // ฟังก์ชันดึงข้อมูลผ่าน Google Apps Script (ไม่มีปัญหา CORS)
+    // ฟังก์ชันดึงข้อมูลผ่าน Google Apps Script 
     // ==========================================
     async function fetchDataFromSheet() {
       try {
@@ -695,73 +670,74 @@
         const response = await fetch(url, { method: 'GET' });
         const raw = await response.json();
 
-        if (!Array.isArray(raw) || raw.length < 2) return false;
+        // [แก้ไขจุดที่ 1] ป้องกันกรณีข้อมูลไม่ได้ส่งกลับมาเป็น Array
+        if (!Array.isArray(raw)) return false;
 
         const sheetRecords = [];
-        for (let i = 1; i < raw.length; i++) {
-          const row = raw[i];
-          if (!row[1]) continue; 
+        // [แก้ไขจุดที่ 2] ถ้ายาวแค่ 1 แปลว่ามีแค่หัวตาราง (ข้อมูล = 0) เราจะไม่ถือว่าเป็น Error 
+        if (raw.length >= 2) {
+            for (let i = 1; i < raw.length; i++) {
+              const row = raw[i];
+              if (!row[1]) continue; 
 
-          let dateVal = String(row[1]).slice(0, 10);
-          if (dateVal.length > 10 || isNaN(Date.parse(dateVal))) {
-            const d = new Date(row[1]);
-            if (!isNaN(d)) {
-              dateVal = d.toISOString().slice(0, 10);
+              let dateVal = String(row[1]).slice(0, 10);
+              if (dateVal.length > 10 || isNaN(Date.parse(dateVal))) {
+                const d = new Date(row[1]);
+                if (!isNaN(d)) {
+                  dateVal = d.toISOString().slice(0, 10);
+                }
+              }
+
+              let rate = parseFloat(row[10]) || 0;
+              if (rate > 0 && rate <= 1) rate = Number((rate * 100).toFixed(2));
+              else rate = Number(rate.toFixed(2));
+
+              const getItem = (val) => {
+                const s = String(val || '').trim();
+                return (s === 'ปฏิบัติ' || s === 'ไม่ปฏิบัติ') ? s : null;
+              };
+
+              const itemsObj = {
+                1: getItem(row[2]),
+                2: getItem(row[3]),
+                3: getItem(row[4]),
+                4: getItem(row[5]),
+                5: getItem(row[6]),
+                6: getItem(row[7]),
+                7: getItem(row[8]),
+                8: getItem(row[9]),
+              };
+
+              let yesCountInRow = 0;
+              let hasAnyItem = false;
+              for (let k = 1; k <= 8; k++) {
+                if (itemsObj[k] !== null) {
+                  hasAnyItem = true;
+                  if (itemsObj[k] === 'ปฏิบัติ') yesCountInRow++;
+                }
+              }
+              if (hasAnyItem) {
+                rate = Number(((yesCountInRow / 8) * 100).toFixed(2));
+              }
+
+              sheetRecords.push({
+                id: `SHEET_${i}_${dateVal}`,
+                date: dateVal,
+                timestamp: String(row[0]),
+                items: itemsObj,
+                complianceRate: rate,
+                remarks: String(row[11] || ''),
+                synced: true
+              });
             }
-          }
-
-          let rate = parseFloat(row[10]) || 0;
-          if (rate > 0 && rate <= 1) rate = Number((rate * 100).toFixed(2));
-          else rate = Number(rate.toFixed(2));
-
-          const getItem = (val) => {
-            const s = String(val || '').trim();
-            return (s === 'ปฏิบัติ' || s === 'ไม่ปฏิบัติ') ? s : null;
-          };
-
-          const itemsObj = {
-            1: getItem(row[2]),
-            2: getItem(row[3]),
-            3: getItem(row[4]),
-            4: getItem(row[5]),
-            5: getItem(row[6]),
-            6: getItem(row[7]),
-            7: getItem(row[8]),
-            8: getItem(row[9]),
-          };
-
-          // คำนวณ complianceRate จากรายการที่บันทึกจริงเพื่อให้ได้ทศนิยม 2 ตำแหน่งที่แม่นยำ
-          let yesCountInRow = 0;
-          let hasAnyItem = false;
-          for (let k = 1; k <= 8; k++) {
-            if (itemsObj[k] !== null) {
-              hasAnyItem = true;
-              if (itemsObj[k] === 'ปฏิบัติ') yesCountInRow++;
-            }
-          }
-          if (hasAnyItem) {
-            rate = Number(((yesCountInRow / 8) * 100).toFixed(2));
-          }
-
-          sheetRecords.push({
-            id: `SHEET_${i}_${dateVal}`,
-            date: dateVal,
-            timestamp: String(row[0]),
-            items: itemsObj,
-            complianceRate: rate,
-            remarks: String(row[11] || ''),
-            synced: true
-          });
         }
-
-        if (sheetRecords.length === 0) return false;
 
         const localUnsynced = db.records.filter(r => !r.synced);
         db.records = [...sheetRecords, ...localUnsynced];
         localStorage.setItem('cauti_records', JSON.stringify(db.records));
 
         console.log(`✅ ดึงข้อมูลจาก GAS สำเร็จ: ${sheetRecords.length} รายการ`);
-        return true;
+        return true; // สำเร็จเสมอแม้จะดึงมา 0 รายการก็ตาม
 
       } catch (err) {
         console.error('❌ ดึงข้อมูลผ่าน GAS ไม่ได้:', err);
@@ -1362,7 +1338,6 @@
         } else {
             emptyState2.classList.add('hidden');
 
-            // Sort descending by percentage (pct) of non-compliance, then by count, then by item number
             ncDataArr.sort((a, b) => b.pct - a.pct || b.noCount - a.noCount || a.item - b.item);
 
             let listHtml = '';
